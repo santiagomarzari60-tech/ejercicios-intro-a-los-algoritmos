@@ -1,6 +1,4 @@
-/**
- * Esto es una prueba
- */    
+    
 /**
  * Write a description of class Fecha here.
  * 
@@ -136,14 +134,13 @@ public class Fecha
         return anho;
     }
     
-    /*
     public void cambiarFecha(int dia, int mes, int anho)
     {
         assert(fechaValida(dia,mes,anho));
         this.dia=dia;
         this.mes=mes;
         this.anho=anho;
-    }*/
+    }
 }
 
 
