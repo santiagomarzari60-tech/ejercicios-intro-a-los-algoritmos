@@ -141,6 +141,67 @@ public class Fecha
         this.mes=mes;
         this.anho=anho;
     }
+    
+    /**
+     * Returns the date in a String form.
+     */
+    public String toString()
+    {
+        return dia + "/" + mes + "/" + anho;
+    }
+    
+    /**
+     * Compares two objects of the same Fecha class.
+     */
+    public boolean equals(Fecha otraFecha)
+    {
+        if ( dia == otraFecha.obtenerDia() && mes == otraFecha.obtenerMes() && anho == obtenerAnho() )
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+    
+    public boolean esAnterior(Fecha otraFecha)
+    {
+        if( (anho < otraFecha.obtenerAnho()) || (anho == otraFecha.obtenerAnho() && mes < otraFecha.obtenerMes()) || (anho == otraFecha.obtenerAnho() && mes == otraFecha.obtenerMes() && dia < otraFecha.obtenerDia() )){
+            return true;
+        }
+        else
+        { 
+            return false;
+        }
+    }
+    
+    private void incrementarDia()
+    {
+        dia++;
+        if( dia > cantidadDias(mes, anho) )
+        {
+            dia = 0;
+            mes++;
+        }
+        if ( mes > 12 )
+        {
+            mes = 1;
+            anho++;
+        }
+    }
+    
+    public int distancia(Fecha otraFecha)
+    {
+        assert esAnterior(otraFecha) || equals(otraFecha);
+        int dist = 0;
+        if (equals(otraFecha)) {
+            return dist;
+        }
+        else{
+            
+        }
+    }
 }
 
 
