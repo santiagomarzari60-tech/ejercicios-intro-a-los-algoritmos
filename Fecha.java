@@ -155,7 +155,7 @@ public class Fecha
      */
     public boolean equals(Fecha otraFecha)
     {
-        if ( dia == otraFecha.obtenerDia() && mes == otraFecha.obtenerMes() && anho == obtenerAnho() )
+        if ( dia == otraFecha.obtenerDia() && mes == otraFecha.obtenerMes() && anho == otraFecha.obtenerAnho() )
         {
             return true;
         }
@@ -176,12 +176,12 @@ public class Fecha
         }
     }
     
-    private void incrementarDia()
+    public void incrementarDia()
     {
         dia++;
         if( dia > cantidadDias(mes, anho) )
         {
-            dia = 0;
+            dia = 1;
             mes++;
         }
         if ( mes > 12 )
@@ -196,11 +196,15 @@ public class Fecha
         assert esAnterior(otraFecha) || equals(otraFecha);
         int dist = 0;
         if (equals(otraFecha)) {
-            return dist;
+            return 0;
         }
         else{
-            
+            while( esAnterior(otraFecha)){
+                incrementarDia();
+                dist++;
+            }
         }
+        return dist + 2;
     }
 }
 
